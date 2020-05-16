@@ -1,4 +1,3 @@
-# 将来的には対応する規約の読込
 inherit_from: .rubocop_todo.yml
 
 # 追加した規約ファイル読込
@@ -7,7 +6,7 @@ require:
 
 AllCops:
   # Rubyバージョン指定
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.5.3
   # 除外
   Exclude:
     - 'config.ru'
@@ -18,6 +17,8 @@ AllCops:
     - 'script/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
     - 'Gemfile'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
 
 # 日本語でのコメントを許可
 AsciiComments:
