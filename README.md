@@ -1,4 +1,4 @@
-# README
+# メディアアプリ制作
 
 ## コンテナ起動
 docker-compose up
