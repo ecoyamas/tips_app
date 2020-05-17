@@ -33,12 +33,11 @@ jobs:
   rspec:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
-        environment:
+      - image: circleci/mysql:5.7
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           DB_USERNAME: 'root'
           DB_PASSWORD: 'fctokyo1992'
-      - image: circleci/mysql:5.7
     working_directory: ~/repo
     steps:
       - checkout
