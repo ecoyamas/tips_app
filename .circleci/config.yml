@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  rspec:
+  build:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
@@ -26,9 +26,3 @@ jobs:
       - run:
           name: テストの実行
           command: bundle exec rspec
-
-workflows:
-  version: 2
-  integration:
-    jobs:
-      - rspec:
