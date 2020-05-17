@@ -58,8 +58,8 @@ jobs:
       - run: bundle exec rake db:schema:load
       # Rspec
       - run:
-        name: Rspec
-        command: bundle exec rspec
+          name: Rspec
+          command: bundle exec rspec
 
 workflows:
   version: 2
