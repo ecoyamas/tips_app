@@ -9,6 +9,7 @@ AllCops:
   TargetRubyVersion: 2.5.3
   # 除外
   Exclude:
+    - 'vendor/**/*'
     - 'config.ru'
     - 'bin/**'
     - 'lib/**'
