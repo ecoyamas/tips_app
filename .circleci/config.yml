@@ -35,12 +35,8 @@ jobs:
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
           RAILS_ENV: test
-          MYSQL_USERNAME: 'root'
-          MYSQL_PASSWORD: ''
-          MYSQL_PORT: 3306
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_DATABASE: tips_app_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_HOST: '%'
     working_directory: ~/repo
@@ -58,12 +54,9 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      - run: rm ./config/database.yml
-      - run: mv ./config/database.yml.ci ./config/database.yml
-      - run:
-          name: Prepare db
-          command: |
-            bundle exec rake db:create db:schema:load --trace
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
       # Rspec
       - run:
           name: Rspec
