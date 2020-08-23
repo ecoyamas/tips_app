@@ -10,11 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_034345) do
+ActiveRecord::Schema.define(version: 2020_08_23_075222) do
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.string "contents"
+  create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "user_group_id"
+    t.date "salary_date", null: false
+    t.string "salary_name", null: false
+    t.integer "income_amount", null: false
+    t.boolean "del_flg", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spendings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "user_group_id"
+    t.date "purchase_date", null: false
+    t.string "product_name", null: false
+    t.integer "price", null: false
+    t.boolean "del_flg", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "group_name", null: false
+    t.boolean "del_flg", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "password", null: false
+    t.integer "group_id"
+    t.boolean "del_flg", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
