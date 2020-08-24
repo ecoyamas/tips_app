@@ -1,9 +1,15 @@
 # 家計簿アプリ
 
-## コンテナ起動
+## コンテナ作成
 docker-compose up
 
-## サーバー停止
+## コンテナ起動
+docker-compose start
+
+## コンテナ終了
+docker-compose stop
+
+##コンテナ削除
 docker-compose down
 
 ## railsコマンド
