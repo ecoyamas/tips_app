@@ -60,6 +60,9 @@ jobs:
       - run: mv config/database.yml.ci config/database.yml
       # Database setup
       - run:
+         name: 'wait for db'
+         command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
           name: Databasesetup
           command: |
             bundle exec rake db:create
