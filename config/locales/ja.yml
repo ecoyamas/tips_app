@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      income: 収入
+    attributes:
+      income:
+        user_id: ユーザーID
+        user_group_id: グループID
+        salary_date: 収入日
+        salary_name: 収入名
+        income_amount: 収入額
